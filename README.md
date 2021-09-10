@@ -23,6 +23,17 @@ To lint everything, run with argument `.`
 docker run --rm -v $(pwd):/project_root -w /project_root extenda/vale .
 ```
 
+### Pre-commit hook
+
+Vale lint is a part of [Extenda pre-commit hooks](https://github.com/extenda/pre-commit-hooks), and you configure it in the following way.
+
+```yaml
+- repo: git://github.com/extenda/pre-commit-hooks
+    rev: v0.6 # Use the ref you want to point at
+    hooks:
+      - id: vale
+```
+
 ### NPM action
 
 package.json
