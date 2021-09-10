@@ -1,4 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
-/valelint/vale --config /valelint/.vale.ini --glob="!styles/*" "$@"
+DEFAULT_ARGS="--config /valelint/.vale.ini --glob=!styles/*"                                                       
+
+ARGS="$DEFAULT_ARGS $*"
+
+exec /valelint/vale $ARGS

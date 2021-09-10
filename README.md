@@ -5,9 +5,9 @@ This docker image contains
 * [Vale CLI](https://github.com/errata-ai/vale)
 * Extenda Vale lint style and
 * Extenda vale lint vocabulary
-* A default Vale configuration file. Command line arguments can override some of the default settings, see `--help` for more information.
+* A default Vale configuration file. Command-line arguments can override some of the default settings, see `--help` for more information.
 
-This docker images aims to make it easier to lint natural language in our repositories.
+This docker image aims to make it easier to lint natural language in our repositories.
 
 ## Usage
 
@@ -23,6 +23,16 @@ To lint everything, run with argument `.`
 docker run --rm -v $(pwd):/project_root -w /project_root extenda/vale .
 ```
 
+### NPM action
+
+package.json
+
+```json
+"scripts": {
+    "vale-lint": "docker pull && docker run --rm -v $(pwd):/p -w /p extenda/vale --no-wrap --minAlertLevel=error $(git diff --name-only)"
+  }
+```
+
 ## License
 
-Released under the MIT license.
+This document is released under the MIT license.

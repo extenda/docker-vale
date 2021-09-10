@@ -1,0 +1,14 @@
+default_stages: [commit]
+repos:
+  - repo: git://github.com/extenda/pre-commit-hooks
+    rev: v0.6 # Use the ref you want to point at
+    hooks:
+      - id: commitlint
+        stages: [commit-msg]
+  - repo: local
+    hooks:
+      - id: vale
+        name: Vale lint
+        description: Lint natural language with the Extenda Retail writing style
+        entry: extenda/vale --minAlertLevel=error
+        language: docker_image
