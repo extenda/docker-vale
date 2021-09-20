@@ -5,6 +5,34 @@ on:
       - master
 
 jobs:
+  style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      # lint or test?
+
+      # - name: Determine version
+      #   uses: extenda/actions/conventional-version@v0
+      #   id: semver
+      #   with:
+      #     build-number: ${{ github.run_number }}
+
+      - name: Zip Extenda Style
+        run: |
+          cd styles
+          zip -r ExtendaStyle.zip Extenda Vocab/Extenda -x "*.DS_Store"
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          files: |
+            ExtendaStyle.zip
+
   build:
     runs-on: ubuntu-latest
     steps:
