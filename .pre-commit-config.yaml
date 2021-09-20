@@ -10,5 +10,6 @@ repos:
       - id: vale
         name: Vale lint
         description: Lint natural language with the Extenda Retail writing style
+        exclude: "^.github.*$"
         entry: extenda/vale --minAlertLevel=error
         language: docker_image

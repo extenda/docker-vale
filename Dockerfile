@@ -10,7 +10,7 @@ RUN mkdir -p /valelint
 RUN cp /bin/vale /valelint/vale
 
 WORKDIR /valelint
-COPY styles styles
+COPY .github/styles .github/styles
 COPY vale.ini .vale.ini
 COPY LICENSE LICENSE
 
