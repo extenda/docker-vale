@@ -20,18 +20,19 @@ jobs:
       #   with:
       #     build-number: ${{ github.run_number }}
 
-      - name: Zip Extenda Style
+      - name: Zip Extenda Vale Style
         run: |
           cd styles
-          zip -r ../ExtendaStyle.zip Extenda Vocab/Extenda -x "*.DS_Store"
+          zip -r ../Extenda.zip Extenda Vocab/Extenda -x "*.DS_Store"
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          title: "Extenda"
           automatic_release_tag: "latest"
           prerelease: false
           files: |
-            ExtendaStyle.zip
+            Extenda.zip
 
   build:
     runs-on: ubuntu-latest
