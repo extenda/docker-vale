@@ -1,3 +1,7 @@
 [hH]ii
 [eE]xtenda
 [sS]tructurizr
+HTTP
+HTTPS
+http
+https
