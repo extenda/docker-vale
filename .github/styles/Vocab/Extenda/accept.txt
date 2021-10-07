@@ -1,2 +1,3 @@
 [hH]ii
 [eE]xtenda
+[sS]tructurizr
