@@ -12,3 +12,6 @@ This sentence needs the word that is otherwise an error in the Extenda.ExtendaTe
 <!-- vale Extenda.ExtendaTerm = YES -->
 
 This is a sentence that is linted with an ignored word such as <!-- vale Extenda.ExtendaTerm = NO -->vendor.<!-- vale Extenda.ExtendaTerm = YES -->
+
+
+readme is not accepted, while README is.
