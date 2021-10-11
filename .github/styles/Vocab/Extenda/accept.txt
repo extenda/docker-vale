@@ -6,3 +6,6 @@ HTTPS
 http
 https
 toolchain
+[rR]ego
+Stackdriver
+CloudSQL

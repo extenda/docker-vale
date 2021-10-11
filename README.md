@@ -40,7 +40,7 @@ package.json
 
 ```json
 "scripts": {
-    "vale-lint": "docker pull && docker run --rm -v $(pwd):/p -w /p extenda/vale --no-wrap --minAlertLevel=error $(git diff --name-only)"
+    "vale-lint": "docker pull extenda/vale && docker run --rm -v $(pwd):/p -w /p extenda/vale --no-wrap --minAlertLevel=error $(git diff --name-only)"
   }
 ```
 
