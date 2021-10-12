@@ -4,6 +4,13 @@ Feature: Rules
     When I test "ExtendaTerm"
     Then the output should contain exactly:
       """
-      test.md:3:110:Extenda.ExtendaTerm:Don't use language (such as 'able-bodied') that defines people by their disability.
-      test.md:5:24:Extenda.ExtendaTerm:Don't use language (such as 'crippled') that defines people by their disability.
+      test.md:3:1:Extenda.ExtendaTerm:Consider using 'Business Unit(s)' instead of 'Store'.
+      test.md:4:1:Extenda.ExtendaTerm:Consider using 'Business Unit Group(s)' instead of 'Chain'.
       """
+
+  Scenario: Vale.Terms definitions
+  When I test "Vale.Terms"
+  Then the output should contain exactly:
+    """
+    test.md:3:1:Microsoft.Acronyms:'DAFB' has no definition.
+    """

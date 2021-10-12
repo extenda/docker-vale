@@ -1,0 +1,23 @@
+{
+  "name": "docker-vale",
+  "version": "1.0.0",
+  "description": "This docker image contains",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/extenda/docker-vale.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/extenda/docker-vale/issues"
+  },
+  "homepage": "https://github.com/extenda/docker-vale#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^7.3.1",
+    "prettier": "2.4.1"
+  }
+}

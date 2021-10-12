@@ -12,14 +12,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      # lint or test?
-
-      # - name: Determine version
-      #   uses: extenda/actions/conventional-version@v0
-      #   id: semver
-      #   with:
-      #     build-number: ${{ github.run_number }}
-
       - name: Zip Extenda Vale Style
         run: |
           cd .github/styles
