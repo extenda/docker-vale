@@ -9,3 +9,7 @@ toolchain
 [rR]ego
 Stackdriver
 CloudSQL
+[iI]ngestor
+[dD]ockerfile
+[dDocker]
+[mM]ultitenancy
