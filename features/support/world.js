@@ -5,15 +5,13 @@ class RulesWorld {
   #valeCmd;
 
   constructor() {
-    this.#valeCmd = 'vale --output=line --sort --normalize --relative';
+    this.#valeCmd = 'npx vale --output=line --sort --normalize --relative';
   }
 
-  setCwd(directory) {
-    process.chdir(directory);
-  }
-
-  runCmd() {
-    var valeResult = cp.spawnSync(`${this.#valeCmd}`, ['.'], { shell: true });
+  runCmd(fixtureDirectory) {
+    var valeResult = cp.spawnSync(`${this.#valeCmd}`, [`${fixtureDirectory}`], {
+      shell: true,
+    });
     // console.log(`valeResult: ${valeResult.stdout}`);
     return valeResult.stdout;
   }

@@ -1,3 +1,0 @@
-# Vale.Terms
-
-http fails

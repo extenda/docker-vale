@@ -4,13 +4,13 @@ Feature: Rules
     When I test "ExtendaTerm"
     Then the output should contain exactly:
       """
-      test.md:3:1:Extenda.ExtendaTerm:Consider using 'Business Unit(s)' instead of 'Store'.
-      test.md:4:1:Extenda.ExtendaTerm:Consider using 'Business Unit Group(s)' instead of 'Chain'.
+      fixtures/ExtendaTerm/test.md:3:1:Extenda.ExtendaTerm:Consider using 'Business Unit(s)' instead of 'Store'.
+      fixtures/ExtendaTerm/test.md:4:1:Extenda.ExtendaTerm:Consider using 'Business Unit Group(s)' instead of 'Chain'.
       """
 
-  Scenario: Vale.Terms definitions
-  When I test "Vale.Terms"
-  Then the output should contain exactly:
-    """
-    test.md:3:1:Microsoft.Acronyms:'DAFB' has no definition.
-    """
+  # Scenario: NEW FIXTURE
+  # When I test "NAME OF FIXTURE"
+  # Then the output should contain exactly:
+  #   """
+  #   fixtures/NAME OF FIXTURE WITHOUT SPACE/test.md:LINE:CHARACTER:ERROR MESSAGE
+  #   """

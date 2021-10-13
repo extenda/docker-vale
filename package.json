@@ -18,6 +18,7 @@
   "homepage": "https://github.com/extenda/docker-vale#readme",
   "devDependencies": {
     "@cucumber/cucumber": "^7.3.1",
+    "@ocular-d/vale-bin": "^1.0.10",
     "prettier": "2.4.1"
   }
 }
