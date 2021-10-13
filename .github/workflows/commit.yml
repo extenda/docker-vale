@@ -1,8 +1,6 @@
 name: commit
 on:
-  push:
-    branches:
-      - master
+  - push
 
 jobs:
   lint:
@@ -38,6 +36,7 @@ jobs:
         run: npm run test
 
   style:
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     needs:
       - test
@@ -61,6 +60,7 @@ jobs:
             Extenda.zip
 
   docker:
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     needs:
       - test
