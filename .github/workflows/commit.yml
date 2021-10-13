@@ -29,10 +29,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: Install dependencies
+      - name: Install dependencies
         run: npm Install
 
-      - uses: Test style
+      - name: Test style
         run: npm run test
 
   style:
