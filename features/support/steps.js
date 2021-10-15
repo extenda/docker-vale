@@ -1,4 +1,4 @@
-const { When, Then } = require('@cucumber/cucumber');
+const { Then, When } = require('@cucumber/cucumber');
 const assert = require('assert').strict;
 
 When('I test {string}', function (string) {

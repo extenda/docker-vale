@@ -4,6 +4,8 @@
   "description": "This docker image contains",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint \"features/**/*.{js,ts}\"",
+    "lint:fix": "eslint \"features/**/*.{js,ts}\" --fix",
     "test": "cucumber-js"
   },
   "repository": {
@@ -17,8 +19,16 @@
   },
   "homepage": "https://github.com/extenda/docker-vale#readme",
   "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/eslint-parser": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "@cucumber/cucumber": "^7.3.1",
     "@ocular-d/vale-bin": "^1.0.10",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "prettier": "2.4.1"
   }
 }

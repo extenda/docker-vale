@@ -4,7 +4,7 @@ link: "https://developers.google.com/style/inclusive-documentation"
 ignorecase: true
 level: error
 swap:
-  "(?:store|shop|supermarket)s?": Business Unit(s) # Definition of business unit goes here
-  "(?:store group|shop group|chain)s?": Business Unit Group(s)
-  "(?:vendor|vendors)s?": Supplier(s)
-  "(?:article)s?": Product(s)
+  '(?:store|shop|supermarket)s?': Business Unit(s) # Definition of business unit goes here
+  '(?:store group|shop group|chain)s?': Business Unit Group(s)
+  '(?:vendor|vendors)s?': Supplier(s)
+  '(?:article)s?': Product(s)
