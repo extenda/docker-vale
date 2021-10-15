@@ -1,1 +1,15 @@
 Extenda.zip
+
+# editor configuration
+.idea
+.vscode
+
+# app
+node_modules
+.npmrc
+dist
+.coverage
+.env
+
+# logs
+*.log

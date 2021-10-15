@@ -58,6 +58,12 @@ This sentence needs the word that is otherwise an error in the Extnda.ExtendaTer
 This is a sentence has a word that will be ignored in the `Extenda.ExtendaTerm` style <!-- vale Extenda.ExtendaTerm = NO -->'ignored-word'.<!-- vale Extenda.ExtendaTerm = YES -->
 ```
 
+## Development
+
+### Testing
+
+### Contribute
+
 ## License
 
 This document is released under the MIT license.

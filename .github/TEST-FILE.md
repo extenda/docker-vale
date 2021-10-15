@@ -1,5 +1,7 @@
 # Extenda Style test file
 
+Store
+
 Terminology test file.
 
 Product and price will handle what was previously known as articles. Here is a test of the singular form of article.
