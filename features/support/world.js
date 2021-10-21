@@ -9,7 +9,7 @@ class RulesWorld {
     var valeResult = cp.spawnSync(`${cmd}`, [`${fixtureDirectory}`], {
       shell: true,
     });
-    console.log(`valeResult: ${valeResult.stdout}`);
+    // console.log(`valeResult: ${valeResult.stdout}`);
     return valeResult.stdout;
   }
 }

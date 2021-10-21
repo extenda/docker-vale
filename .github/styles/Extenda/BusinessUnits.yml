@@ -10,6 +10,3 @@ swap:
   store[s]?: Business Unit(s)
   shop[s]?: Business Unit(s)
   supermarket[s]?: Business Unit(s)
-
-  # '(?:vendor|vendors)s?': Supplier(s)
-  # '(?:article)s?': Product(s)
