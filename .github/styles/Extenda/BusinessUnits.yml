@@ -1,0 +1,18 @@
+extends: substitution
+message: "Consider using '%s' instead of '%s'."
+link: "https://developers.google.com/style/inclusive-documentation"
+ignorecase: true
+level: error
+swap:
+  store group[s]?: Business Unit Group(s)
+  shop group[s]?: Business Unit Group(s)
+  chain[s]?: Business Unit Group(s)
+  store[s]?: Business Unit(s)
+  shop[s]?: Business Unit(s)
+  supermarket[s]?: Business Unit(s)
+
+
+  # '(?:store|shop|supermarket)s?': Business Unit(s) # Definition of business unit goes here
+  # '(?:store group|shop group|chain)s?': Business Unit Group(s)
+  # '(?:vendor|vendors)s?': Supplier(s)
+  # '(?:article)s?': Product(s)

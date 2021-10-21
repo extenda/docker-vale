@@ -2,17 +2,14 @@ const { setWorldConstructor } = require('@cucumber/cucumber');
 const cp = require('child_process');
 
 class RulesWorld {
-  #valeCmd;
-
-  constructor() {
-    this.#valeCmd = 'npx vale --output=line --sort --normalize --relative';
-  }
+  constructor() {}
 
   runCmd(fixtureDirectory) {
-    var valeResult = cp.spawnSync(`${this.#valeCmd}`, [`${fixtureDirectory}`], {
+    const cmd = `npx vale --output=line --sort --normalize --relative --config=${fixtureDirectory}/.vale.ini`;
+    var valeResult = cp.spawnSync(`${cmd}`, [`${fixtureDirectory}`], {
       shell: true,
     });
-    // console.log(`valeResult: ${valeResult.stdout}`);
+    console.log(`valeResult: ${valeResult.stdout}`);
     return valeResult.stdout;
   }
 }
