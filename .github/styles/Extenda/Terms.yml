@@ -1,0 +1,8 @@
+extends: substitution
+message: "Consider using '%s' instead of '%s'."
+link: "https://developers.google.com/style/inclusive-documentation"
+ignorecase: true
+level: error
+swap:
+  vendor[s]?: Supplier(s)
+  article[s]?: Product(s)

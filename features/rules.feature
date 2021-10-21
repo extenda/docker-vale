@@ -1,6 +1,6 @@
 Feature: Rules
 
-  Scenario: Extenda Retail related terms
+  Scenario: Extenda Retail Business Unit terms
     When I test "BusinessUnits"
     Then the output should contain exactly:
     """
@@ -16,6 +16,16 @@ Feature: Rules
     fixtures/BusinessUnits/test.md:19:1:Extenda.BusinessUnits:Consider using 'Business Unit Group(s)' instead of 'Store groups'.
     fixtures/BusinessUnits/test.md:20:1:Extenda.BusinessUnits:Consider using 'Business Unit Group(s)' instead of 'Shop groups'.
     fixtures/BusinessUnits/test.md:21:1:Extenda.BusinessUnits:Consider using 'Business Unit Group(s)' instead of 'Chains'.
+    """
+
+  Scenario: Extenda Retail Business Unit terms
+    When I test "Terms"
+    Then the output should contain exactly:
+    """
+    fixtures/Terms/test.md:4:1:Extenda.Terms:Consider using 'Supplier(s)' instead of 'Vendor'.
+    fixtures/Terms/test.md:5:1:Extenda.Terms:Consider using 'Product(s)' instead of 'Article'.
+    fixtures/Terms/test.md:8:1:Extenda.Terms:Consider using 'Supplier(s)' instead of 'Vendors'.
+    fixtures/Terms/test.md:9:1:Extenda.Terms:Consider using 'Product(s)' instead of 'Articles'.
     """
 
   # Scenario: NEW FIXTURE
