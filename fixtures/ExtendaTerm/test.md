@@ -1,4 +1,0 @@
-# ExtendaTerm
-
-Store
-Chain

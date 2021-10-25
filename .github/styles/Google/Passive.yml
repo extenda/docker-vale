@@ -1,7 +1,8 @@
 extends: existence
-message: "'%s' may be passive voice. Use active voice if you can."
+link: 'https://developers.google.com/style/voice'
+message: "In general, use active voice instead of passive voice ('%s')."
 ignorecase: true
-level: warning
+level: suggestion
 raw:
   - \b(am|are|were|being|is|been|was|be)\b\s*
 tokens:
