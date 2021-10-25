@@ -4,9 +4,5 @@ link: "https://developers.google.com/style/inclusive-documentation"
 ignorecase: true
 level: error
 swap:
-  store group[s]?: Business Unit Group(s)
-  shop group[s]?: Business Unit Group(s)
+  (?:store|shop|supermarket)[s]?: Business Unit(s)
   chain[s]?: Business Unit Group(s)
-  store[s]?: Business Unit(s)
-  shop[s]?: Business Unit(s)
-  supermarket[s]?: Business Unit(s)
