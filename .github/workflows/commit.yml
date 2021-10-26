@@ -51,7 +51,7 @@ jobs:
       - name: Zip Extenda Vale Style
         run: |
           cd .github/styles
-          zip -r ../../Extenda.zip Extenda Vocab/Extenda -x "*.DS_Store"
+          zip -r ../../Extenda.zip Extenda Vocab/Extenda Google -x "*.DS_Store"
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
