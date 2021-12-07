@@ -19,7 +19,10 @@ This docker image is known to be used by the following repositories:
 *
   * :warning: only use the Extenda style (`.github/styles/Extenda` + `.github/styles/Vocab/Extenda`) which is released as a zip file
 
+![Extenda Vale](images/structurizr-ExtendaVale-Container.png)
+
 ## Usage
+
 
 ### Examples
 
