@@ -54,19 +54,24 @@ Vale lint is a part of [Extenda pre-commit hooks](https://github.com/extenda/pre
 package.json
 
 ```json
-"scripts": {
+{
+  "scripts": {
     "vale-lint": "docker pull extenda/vale && docker run --rm -v $(pwd):/p -w /p extenda/vale --no-wrap --minAlertLevel=error $(git diff --name-only)"
   }
+}
 ```
 
 ### Ignoring linter feedback in your markdown
 
 You may ignore lines, words, or sections in your markdown to be able to write words that are giving false-positive errors in a markdown file by following these examples.
 
+:warning: `Store` is an ambiguous that might give you issues due to it being a non-accepted synonym for `Business Unit`.
+Follow this example to get past it while we try to resolve the root issue.
+
 ```md
-<!-- vale Extenda.ExtendaTerm = NO -->
-This sentence needs the word that is otherwise an error in the Extnda.ExtendaTerm style.
-<!-- vale Extenda.ExtendaTerm = YES -->
+<!-- vale Extenda.BusinessUnits = NO -->
+This sentence is: to store an entity in a database.
+<!-- vale Extenda.BusinessUnits = YES -->
 ```
 
 ```md
