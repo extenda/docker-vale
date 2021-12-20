@@ -1,8 +1,8 @@
 extends: substitution
-message: "Consider using '%s' instead of '%s'."
+message: "Consider using `%s` instead of `%s`."
 link: "https://developers.google.com/style/inclusive-documentation"
 ignorecase: true
 level: error
 swap:
-  (?:store|shop|supermarket)[s]?: Business Unit(s)
-  chain[s]?: Business Unit Group(s)
+  '(?:a|the)\s(?:store|shop|supermarket)[s]?': Business Unit(s)
+  '(?:a|the)\s(?:chain)[s]?': Business Unit Group(s)

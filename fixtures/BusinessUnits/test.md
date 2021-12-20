@@ -1,21 +1,10 @@
 # BusinessUnits
 
-Singular forms of Business Unit that are not accepted.
-Store is not an accepted term.
-Shop is not an accepted term.
-Supermarket is not an accepted term.
+A store is not an accepted term.
+To store something in a DB is OK.
 
-Singular forms of Business Unit Groups that are not accepted.
-Store group is not an accepted term.
-Shop group is not an accepted term.
-Chain is not an accepted term.
+The supermarket and a shop should fail.
+To shop of he shops is OK.
 
-Plural forms of Business Unit that are not accepted.
-Stores is not an accepted term.
-Shops is not an accepted term.
-Supermarkets is not an accepted term.
-
-Plural forms of Business Unit Groups that are not accepted.
-Store groups is not an accepted term.
-Shop groups is not an accepted term.
-Chains is not an accepted term.
+A chain and the chain should fail.
+To chain something together is OK.
