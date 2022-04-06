@@ -25,11 +25,11 @@ Feature: Rules
     When I test "OpenApiSpec"
     Then the output should contain exactly:
     """
-    fixtures/OpenApiSpec/petstore.json:106:44:Extenda.BusinessUnits:Consider using `Business Unit(s)` instead of `the store`.
-    fixtures/OpenApiSpec/petstore.json:121:76:Extenda.BusinessUnits:Consider using `Business Unit(s)` instead of `the store`.
-    fixtures/OpenApiSpec/petstore.json:161:76:Extenda.BusinessUnits:Consider using `Business Unit(s)` instead of `the store`.
-    fixtures/OpenApiSpec/petstore.json:340:44:Extenda.BusinessUnits:Consider using `Business Unit(s)` instead of `the store`.
-    fixtures/OpenApiSpec/petstore.json:951:49:Extenda.BusinessUnits:Consider using `Business Unit(s)` instead of `the store`.
+    fixtures/OpenApiSpec/openapi.json:106:44:Extenda.BusinessUnits:Consider using `Business Unit(s)` instead of `the store`.
+    fixtures/OpenApiSpec/openapi.json:121:76:Extenda.BusinessUnits:Consider using `Business Unit(s)` instead of `the store`.
+    fixtures/OpenApiSpec/openapi.json:161:76:Extenda.BusinessUnits:Consider using `Business Unit(s)` instead of `the store`.
+    fixtures/OpenApiSpec/openapi.json:340:44:Extenda.BusinessUnits:Consider using `Business Unit(s)` instead of `the store`.
+    fixtures/OpenApiSpec/openapi.json:951:49:Extenda.BusinessUnits:Consider using `Business Unit(s)` instead of `the store`.
     """
 
   # Scenario: NEW FIXTURE
