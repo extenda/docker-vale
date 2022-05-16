@@ -9,8 +9,8 @@ The docker image aims to make it easier to lint natural language through CLI, pr
 It contains the following:
 
 * [Vale CLI](https://github.com/errata-ai/vale)
-* Extenda Vale lint [style](.github/styles/Extenda)
-* Extenda Vale lint [vocabulary](.github/styles/Vocab/Extenda).
+* Extenda Vale lint [style](Extenda/styles/Extenda)
+* Extenda Vale lint [vocabulary](Extenda/styles/Vocab/Extenda).
 * A default Vale [configuration file](vale.ini). Command-line arguments can override some default settings, see `--help` for more information.
 
 This docker image is known to be used by the following repositories:
