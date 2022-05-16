@@ -3,7 +3,7 @@ on:
   - push
 
 jobs:
-  lint:
+  lint-yaml:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,12 +18,12 @@ jobs:
         run: sudo -H pip install yamllint pykwalify==1.7.0
 
       - name: YAML lint
-        run: yamllint .github/styles
+        run: yamllint Extenda/styles
 
   test:
     runs-on: ubuntu-latest
     needs:
-      - lint
+      - lint-yaml
     steps:
       - uses: actions/checkout@v2
         with:
@@ -42,6 +42,7 @@ jobs:
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     needs:
+      - lint-yaml
       - test
     steps:
       - uses: actions/checkout@v2
@@ -50,8 +51,7 @@ jobs:
 
       - name: Zip Extenda Vale Style
         run: |
-          cd .github/styles
-          zip -r ../../Extenda.zip Extenda Vocab/Extenda Google -x "*.DS_Store"
+          zip -r Extenda.zip Extenda/ -x styles/Google/\*
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -61,31 +61,3 @@ jobs:
           prerelease: false
           files: |
             Extenda.zip
-
-  docker:
-    if: github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-    needs:
-      - test
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - uses: extenda/actions/gcp-secret-manager@v0
-        with:
-          service-account-key: ${{ secrets.SECRET_AUTH }}
-          secrets: |
-            DOCKER_PASSWORD: dockerhub-password
-            DOCKER_USERNAME: dockerhub-username
-
-      - name: Push to DockerHub
-        if: github.ref == 'refs/heads/master'
-        uses: extenda/actions/docker@v0
-        with:
-          image: extenda/vale
-          tag: latest
-          registry: docker.io
-          dockerfile: Dockerfile
-          username: ${{ env.DOCKER_USERNAME }}
-          password: ${{ env.DOCKER_PASSWORD }}
