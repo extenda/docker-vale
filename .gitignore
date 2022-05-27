@@ -1,5 +1,3 @@
-Extenda.zip
-
 # editor configuration
 .idea
 .vscode
@@ -13,3 +11,8 @@ dist
 
 # logs
 *.log
+
+.github/styles
+styles
+Extenda.zip
+Extenda/styles/Google

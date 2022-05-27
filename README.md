@@ -1,71 +1,58 @@
-# docker-vale
+# Extenda Vale Style
 
-This repository produce two artifacts:
-* docker image `extenda/vale`
-* Extenda style and vocabulary [zip](https://github.com/extenda/docker-vale/releases/tag/latest)
-
-The docker image aims to make it easier to lint natural language through CLI, pre-commit hooks, and GitHub Actions.
-
-It contains the following:
-
-* [Vale CLI](https://github.com/errata-ai/vale)
-* Extenda Vale lint [style](Extenda/styles/Extenda)
-* Extenda Vale lint [vocabulary](Extenda/styles/Vocab/Extenda).
-* A default Vale [configuration file](vale.ini). Command-line arguments can override some default settings, see `--help` for more information.
-
-This docker image is known to be used by the following repositories:
-* [pre-commit hooks](https://github.com/extenda/pre-commit-hooks)
-* [action](https://github.com/extenda/actions/tree/master/vale-linting)
-*
-  * :warning: only use the Extenda style (`.github/styles/Extenda` + `.github/styles/Vocab/Extenda`) which is released as a zip file
+Contains rules, vocabulary, and basic `.vale.ini`.
+By Vale's standard, it is considered a complete package.
+More information about Vale packages [here](https://vale.sh/docs/topics/packages/)
 
 ![Extenda Vale](images/structurizr-ExtendaVale-Container.png)
 
 ## Usage
 
+1. Install the Vale CLI. [Instructions](https://vale.sh/docs/vale-cli/installation/)
+2. If `.vale.ini` doesn't already exist in your repository add the [following configuration as a base config](docs/base-ini-config.md).
+3. Run `vale sync` - this will sync download/sync the styles from your `.vale.ini`.
+   Remember to add the styles to `.gitignore`.
+   Instructions](https://vale.sh/docs/topics/packages/#packages-and-vcs).
+4. Run `vale .` to lint all files in your repository.
 
-### Examples
+[//]: # (## Running docker-vale as Pre-commit hook)
+[//]: # ()
+[//]: # (Vale lint is a part of [Extenda pre-commit hooks]&#40;https://github.com/extenda/pre-commit-hooks&#41;, and you configure it in the following way.)
+[//]: # ()
+[//]: # (```yaml)
+[//]: # (- repo: git://github.com/extenda/pre-commit-hooks)
+[//]: # (    rev: v0.7 # Use the ref you want to point at)
+[//]: # (    hooks:)
+[//]: # (      - id: vale)
+[//]: # (```)
 
-To start using Vale, run with argument `--help`
-```bash
-docker run --rm -v $(pwd):/project_root -w /project_root extenda/vale --help
-```
+## Running Vale as a pre-commit hook
 
-To lint everything, run with argument `.`
-```bash
-docker run --rm -v $(pwd):/project_root -w /project_root extenda/vale .
-```
-
-See the [Vale repository docs](https://docs.errata.ai/) for more information.
-
-#### Running docker-vale as Pre-commit hook
-
-Vale lint is a part of [Extenda pre-commit hooks](https://github.com/extenda/pre-commit-hooks), and you configure it in the following way.
+:warning:
+[vale pre-commit](https://github.com/extenda/pre-commit-hooks#available-hooks) is deprecated
+and a new hook has not been created.
+If you still want to use Vale in your pre-commit hooks,
+you can use the following example i your `.pre-commit-config.yaml`
 
 ```yaml
-- repo: git://github.com/extenda/pre-commit-hooks
-    rev: v0.7 # Use the ref you want to point at
+- repo: local
     hooks:
-      - id: vale
+      - id: inline-vale-lint-with-bash
+        name: inline-vale-lint-with-bash
+        entry: bash -c 'vale .'
+        language: system
+        types: [text]
+        pass_filenames: true
 ```
 
-#### Running docker-vale as an NPM action
+## Ignoring linter feedback in your markdown
 
-package.json
+You may ignore lines, words,
+or sections in your markdown to be able
+to write words that are giving false-positive errors in a markdown file by following these examples.
 
-```json
-{
-  "scripts": {
-    "vale-lint": "docker pull extenda/vale && docker run --rm -v $(pwd):/p -w /p extenda/vale --no-wrap --minAlertLevel=error $(git diff --name-only)"
-  }
-}
-```
-
-### Ignoring linter feedback in your markdown
-
-You may ignore lines, words, or sections in your markdown to be able to write words that are giving false-positive errors in a markdown file by following these examples.
-
-:warning: `Store` is an ambiguous that might give you issues due to it being a non-accepted synonym for `Business Unit`.
+:warning:
+The word `store` is ambiguous and might report errors since it is a non-accepted synonym for `Business Unit`.
 Follow this example to get past it while we try to resolve the root issue.
 
 ```md
@@ -74,15 +61,7 @@ This sentence is: to store an entity in a database.
 <!-- vale Extenda.BusinessUnits = YES -->
 ```
 
-```md
-This is a sentence has a word that will be ignored in the `Extenda.ExtendaTerm` style <!-- vale Extenda.ExtendaTerm = NO -->'ignored-word'.<!-- vale Extenda.ExtendaTerm = YES -->
-```
-
-### Configuration
-
-The tool is configured with the [vale.ini](vale.ini) file. It describes the default parameters used. Additional configuration can be found [here](https://docs.errata.ai/).
-
-## Development
+## Development / Contributing
 
 ### Getting started
 
@@ -96,13 +75,6 @@ Installing dependencies for testing
 npm install
 ```
 
-### Build and run the docker image locally
-
-```bash
-docker build -t local-vale .
-docker run --rm -v $(pwd):/project_root -w /project_root local-vale "$@"
-```
-
 ### Prerequisites
 
 * [Docker](https://docs.docker.com/get-docker/)
@@ -112,32 +84,34 @@ docker run --rm -v $(pwd):/project_root -w /project_root local-vale "$@"
 ### Testing
 
 The test harness is made up of the following:
-* Style yaml file. Located under `.github/styles/Extenda`.
+* Style yaml file. Located under `Extenda/styles/Extenda`.
 * Fixture test folder. For example `fixtures/Terms`. This folder contains:
   * `.vale.ini` - fixture test configuration.
   * `test.md` - markdown file that will be linted for errors, warning, and/or suggestions.
 * Rules file that will assert the lint of the `test.md` file above. Located under `features/rules.feature`
 
-#### Running the tests
+To run the tests:
 
 ```bash
 npm run test
 ```
 
-#### Adding new linting rules with corresponding test
+### Adding new linting rules with the corresponding test
 
-Tests are based on naming conventions. A folder under the `fixtures` folder MUST match the corresponding style file under `.github/styles/`.
-For example the test fixture folder `fixtures/BusinessUnits` MUST be named the same as `.github/styles/Extenda/BusinessUnits.yml`.
+Tests are based on naming conventions.
+A folder under the `fixtures` folder MUST match the corresponding style file under `Extenda/styles/`.
+For example,
+the test fixture folder `fixtures/BusinessUnits` MUST be named the same as `Extenda/styles/Extenda/BusinessUnits.yml`.
 
 Here is a scenario where we want to add a new style file name `New.yml`
 
-1. Create style file `.github/styles/Extenda/New.yml`
+1. Create style file `.Extenda/styles/Extenda/New.yml`
 2. Create fixture folder `fixtures/New`
 3. Create vale.ini config for just this style file `fixtures/New/.vale.ini`
 4. Create test.md file that will some lines that will pass and some that will fail `fixtures/New/test.md`
 5. Add a section for `New` in `features/rules.feature`.
 
-#### C4 diagrams
+### C4 diagrams
 
 All C4 diagrams must be created with [Structurizr DSL](https://github.com/structurizr/dsl#readme). Use the provided
 `dsl2png.sh` script to create PNG images from the DSL. Use the `--watch` flag while making changes.
@@ -148,17 +122,30 @@ This will give a live preview of the diagrams in your browser at http://localhos
 ```
 > :bulb: On Windows 10? Use `dsl2png.cmd` instead.
 
+## Known issues
+
+* Package config `StylesPath` is set to `.github/styles`.
+  It should work with just `styles`, but that creates a duplicate styles folder in the root of the consuming repo.
+  If we default our styles to be located under .github/styles we are OK.
+
+* If you want to run Vale as an NPM action, you can use the module
+  (@ocular-d/vale-bin)[https://www.npmjs.com/package/@ocular-d/vale-bin].
+  This module is not official and might not work with the `glob` patterns specified in your `.vale.ini` file.
+
 ## Maintainers
 
 The docker-vale maintainers are the members of the following team:
 
 - [Development chapter](https://github.com/orgs/extenda/teams/chapter-development)
 
-## Contributions
-
-This section contains some guidance how to contribute changes to areas that require tooling.
-In general, the toolchain depends on [Docker](https://docker.io).
-It also uses
 
 ## License
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+
+
+Her er listen over de som har ansvar for de forskjellige dokumentasjonsinitiativene:
+Hii Retail Services (Confluence) --> @Mari-Anne
+Hii Client Pages (new Hii Console)--> @Sten
+(Hii InStore --> @Christoffer Dalset)
+Hii Retail Developer Portal (redesign) --> @shayne.clausson
+End user training --> @Cecilia

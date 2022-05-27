@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint \"features/**/*.{js,ts}\"",
     "lint:fix": "eslint \"features/**/*.{js,ts}\" --fix",
+    "lint:docs": "vale sync && vale .",
     "test": "cucumber-js"
   },
   "repository": {
