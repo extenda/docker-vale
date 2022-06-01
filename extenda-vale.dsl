@@ -2,7 +2,6 @@ workspace {
   model {
     # users
     developer = person "Developer" "Extenda employee"
-    #pre_commit = softwareSystem "Pre-commit hooks" "Extenda pre-commit-hooks repository"
     gh_actions = softwareSystem "GitHub Action (errata-ai/vale-action@reviewdog)" "GitHub Actions workflow"
     vale_cli = softwareSystem "Vale CLI (https://vale.sh/docs/vale-cli/installation/)" "Dev env"
 

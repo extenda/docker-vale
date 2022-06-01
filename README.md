@@ -141,11 +141,3 @@ The docker-vale maintainers are the members of the following team:
 
 ## License
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
-
-
-Her er listen over de som har ansvar for de forskjellige dokumentasjonsinitiativene:
-Hii Retail Services (Confluence) --> @Mari-Anne
-Hii Client Pages (new Hii Console)--> @Sten
-(Hii InStore --> @Christoffer Dalset)
-Hii Retail Developer Portal (redesign) --> @shayne.clausson
-End user training --> @Cecilia
