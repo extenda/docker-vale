@@ -14,3 +14,4 @@ CloudSQL
 [dDocker]
 [mM]ultitenancy
 npx
+npm
