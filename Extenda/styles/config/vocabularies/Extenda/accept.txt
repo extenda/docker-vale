@@ -15,3 +15,5 @@ CloudSQL
 [mM]ultitenancy
 npx
 npm
+[sS]ocket.[IiOo]
+socket.io
